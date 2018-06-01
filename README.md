@@ -14,11 +14,11 @@ It may have a 9*9 board, it is a beginner level with 10 mines randomly located a
 
 A user may do the following:
 
-*He can enter a pair of coordinates consisting of x and y, namely (x,y) to investigate that paticular grid:
-    *If the grid has not been investigate, then it will become non-empty
-        *If the grid contains a mine, then the player loses and board should display all the mines.
-        *If not contains, then the grid will show a numerical value or blank, the game will continue
-    *If the grid has already been investigate, it will let user choose another grid that hasn't been investiaged yet.
+* He can enter a pair of coordinates consisting of x and y, namely (x,y) to investigate that paticular grid:
+    * If the grid has not been investigate, then it will become non-empty
+        * If the grid contains a mine, then the player loses and board should display all the mines.
+        * If not contains, then the grid will show a numerical value or blank, the game will continue
+    * If the grid has already been investigate, it will let user choose another grid that hasn't been investiaged yet.
     
     
     
