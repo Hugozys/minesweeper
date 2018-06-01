@@ -20,6 +20,15 @@ A user may do the following:
         * If not contains, then the grid will show a numerical value or blank, the game will continue.
     * If the grid has already been investigate, it will let user choose another grid that hasn't been investiaged yet.
     
+
+For the current concern:
+I should figure out how to design the board class:
+* It SHOULD have a data strcuture to hold the information about each grid
+* It SHOULD have a field to hold the information about the  total mine numbers
+* It SHOULD have a method to print itself every time.
+
+Your goal by this weekend would be to write out this board class and some of the methods, successfully render the board on the terminal
+
     
     
 #### STEP 2
