@@ -14,4 +14,4 @@ test_board: $(OBJS)
 
 
 clean:
-	rm -f *~ *# *.o
+	rm -f *~ *# *.o test_board
