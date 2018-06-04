@@ -15,8 +15,15 @@ const char * BOT_RIGHT = "\u255D";
 const char * HORI = "\u2550";
 const char * VERT = "\u2551";
 
-Board::Board(int rows, int columns):grids(vector<vector<int> >(rows, vector<int>(columns, 0))),rows_num(rows),cols_num(columns){}
+void Board::initialize_grids(){
 
+
+}
+
+
+Board::Board(size_t rows, size_t columns,size_t mine):grids(vector<vector<GridInfo> >(rows, vector<GridInfo>(columns))),rows_num(rows),cols_num(columns),mine_num(mine){
+  initialize_grids();
+}
 
 
 void Board::print_board(){
@@ -35,13 +42,13 @@ void Board::print_board(){
       }
       else if(i == 2*rows_num){
 	if (j == 0){
-	  std::cout<<BOT_LEFT<<HORI<<HORI<<HORI/*<<grids[i][j]*/;
+	  std::cout<<BOT_LEFT<<HORI<<HORI<<HORI;
 	}
 	else if (j == cols_num - 1){
 	  std::cout<<BOT_RIGHT<<std::endl;
 	}
 	else{
-	  std::cout<<BOT_MIDDLE<<HORI<<HORI<<HORI/*<<grids[i][j]*/;
+	  std::cout<<BOT_MIDDLE<<HORI<<HORI<<HORI;
 	}
       }
       else{
@@ -55,7 +62,10 @@ void Board::print_board(){
 	  std::cout<<VERT<<std::endl;
 	}
 	else if (i % 2 != 0){
-	  std::cout<<VERT<<" "<<grids[i/2][j]<<" ";
+	  std::cout<<VERT<<" ";
+	  grids[i/2][j].print_grid_content();
+	  std::cout<<" ";
+	  //grids[i/2][j]<<" ";
 	} 
 	else{
 	  std::cout<<MID_MIDDLE<<HORI<<HORI<<HORI;
