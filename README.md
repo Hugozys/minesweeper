@@ -15,11 +15,12 @@ It may have a 9*9 board, it is a beginner level with 10 mines randomly located a
 A user may do the following:
 
 * He can enter a pair of coordinates consisting of x and y, namely (x,y) to investigate that paticular grid:
-    * If the grid has not been investigate, then it will become non-empty
+    * If the grid has not been investigated, then it will become non-empty
         * If the grid contains a mine, then the player loses and board should display all the mines.
         * If not contains, then the grid will show a numerical value or blank, the game will continue.
     * If the grid has already been investigate, it will let user choose another grid that hasn't been investiaged yet.
-    
+* The user can choose to mark a unexplored grid if he suspects that grid is actually a mine. He can also undo it. The grid will
+become a question mark.
 
 For the current concern:
 I should figure out how to design the board class:
@@ -27,7 +28,12 @@ I should figure out how to design the board class:
 * It SHOULD have a field to hold the information about the  total mine numbers
 * It SHOULD have a method to print itself every time.
 
-Your goal by this weekend would be to write out this board class and some of the methods, successfully render the board on the terminal
+Your goal by this weekend would be to write out this board class and some of the methods, successfully render the board on the terminal (check Jun 3rd)
+
+Your goal by this weekend would be to write the recursive rendering method of board class (when the game starts, the user is able to randomly explore a grid, and the there may be multiple grids revealed instead of just the one the user chooses (Jun 10th)
+
+
+
 
     
     
