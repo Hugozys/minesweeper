@@ -25,6 +25,7 @@ public:
   Board(size_t rows, size_t columns,size_t mine);
   void print_board(bool is_over);
   void board_on_click(size_t row_index, size_t col_index);
+  void board_on_mark(size_t row_index, size_t col_index);
 };
 
 

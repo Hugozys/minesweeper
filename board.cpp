@@ -200,3 +200,21 @@ void Board::board_on_click(size_t row_index, size_t col_index){
 }
 
 
+
+
+void Board::board_on_mark(size_t row_index, size_t col_index){
+  if (row_index >= rows_num || col_index >= cols_num || row_index < 0 || col_index < 0){
+    throw IndexOutOfBound();
+  }
+  else if(grids[row_index][col_index].get_has_clicked()){
+    throw RedundantMark();
+  }
+  else if (grids[row_index][col_index].get_has_marked()){
+    grids[row_index][col_index].set_has_marked(false);
+  }
+  else{
+    grids[row_index][col_index].set_has_marked(true);
+  }						    
+}
+
+
