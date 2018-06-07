@@ -33,16 +33,19 @@ Your goal by this weekend would be to write out this board class and some of the
 Your goal by this weekend would be to write the recursive rendering method of board class (when the game starts, the user is able to randomly explore a grid, and the there may be multiple grids revealed instead of just the one the user chooses (Jun 10th)
 
 Your goal is to write the main function which enable interaction with the player. It involves:
--click a grid
--mark a grid
--designate board size and mine numbers
--tell the player if he loses or wins
+-click a grid (DONE)
+-mark a grid  (DONE)
+-designate board size and mine numbers (DONE)
+-tell the player if he loses or wins (WINS HASN'T DONE)
 
-    
     
 #### STEP 2
 We could make it multiple difficulties. Beginner, Intermediate and Hard with larger board size and more mines.
 The player should be able to choose between these levels
+
+Your goal is to improve your main function in such a way that if the user enter "b" command while playing or he finished one round, he should be brought back to a status where the game would let him choose difficulties (easy medium hard customize) and start a new round. You should also implement checking if the player wins after every update to the board
+
+
 
 
 
