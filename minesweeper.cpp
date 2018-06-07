@@ -25,6 +25,9 @@ void parse_command(Board & game_board){
     raw_stream >>row_index;
     raw_stream >>col_index;
     game_board.board_on_click(row_index, col_index);
+    if (game_board.has_won()){
+      throw GameOver(true);
+    }
   }
   else if (command == "m"){
     raw_stream >>row_index;
@@ -147,7 +150,7 @@ int main(int argc, char** argv){
 	}
 	catch (const InvalidCommand & e){
 	  std::cout<<e.what()<<std::endl;
-	  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	  //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	  continue;
 	}
 	catch (const GameOver & e){

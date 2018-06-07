@@ -83,7 +83,7 @@ void Board::initialize_grids(){
 }
 
 
-Board::Board(size_t rows, size_t columns,size_t mine):grids(vector<vector<GridInfo> >(rows, vector<GridInfo>(columns))),rows_num(rows),cols_num(columns),mine_num(mine){
+Board::Board(size_t rows, size_t columns,size_t mine):grids(vector<vector<GridInfo> >(rows, vector<GridInfo>(columns))),rows_num(rows),cols_num(columns),mine_num(mine),to_win_num(rows*columns - mine){
   initialize_grids();
   initialize_mine_nums();
 }
@@ -158,6 +158,7 @@ void Board::recursive_update_board(size_t row_index, size_t col_index){
   else{
     grids[row_index][col_index].set_has_clicked(true);
     grids[row_index][col_index].set_has_marked(false);
+    --to_win_num;
   //else we change this grid's status to has_clicked,unset mark
     if (grids[row_index][col_index].get_mine_num_around() == 0){
     //if row_index > 0
@@ -189,7 +190,7 @@ void Board::board_on_click(size_t row_index, size_t col_index){
     throw IndexOutOfBound();
   }
   else if(grids[row_index][col_index].get_is_mine()){
-    throw GameOver();
+    throw GameOver(false);
   }
   else if(grids[row_index][col_index].get_has_clicked()){
     throw RedundantClick();
@@ -217,4 +218,7 @@ void Board::board_on_mark(size_t row_index, size_t col_index){
   }						    
 }
 
+bool Board::has_won(){
+  return (to_win_num == 0);
+}
 

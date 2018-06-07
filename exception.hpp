@@ -11,12 +11,15 @@ public:
 };
 
 class GameOver: public std::exception{
+  bool has_won;
 public:
+  GameOver(bool w):has_won(w){}
   virtual const char * what() const noexcept(true){
-    return "You picked a mine grid! You lose!!! Do you want to play again? (Press y for yes and n for no)";
+    if (has_won){
+      return "You explored all the grids without touching a mine! You win!!! Do you want to play again? (Press y for yes or n for no)";
+    }
+    return "You picked a mine grid! You lose!!! Do you want to play again? (Press y for yes or n for no)";
   }
-  
-
 };
 
 class RedundantClick: public std::exception{

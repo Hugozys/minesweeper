@@ -16,6 +16,7 @@ class Board{
   size_t rows_num;
   size_t cols_num;
   size_t mine_num;
+  size_t to_win_num;
   void generate_mines();
   void recursive_update_board(size_t row_index, size_t col_index);
   void count_mine(size_t ro, size_t cl, int & answer);
@@ -26,6 +27,7 @@ public:
   void print_board(bool is_over);
   void board_on_click(size_t row_index, size_t col_index);
   void board_on_mark(size_t row_index, size_t col_index);
+  bool has_won();
 };
 
 
