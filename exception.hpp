@@ -13,7 +13,7 @@ public:
 class GameOver: public std::exception{
 public:
   virtual const char * what() const noexcept(true){
-    return "You picked a mine grid! You lose!!!";
+    return "You picked a mine grid! You lose!!! Do you want to play again? (Press y for yes and n for no)";
   }
   
 
@@ -51,6 +51,20 @@ class QuitGame: public std::exception{
   
 };
 
+class ReturnMenu: public std::exception{
+};
 
+class InvalidParameter: public std::exception{
+public:
+  virtual const char * what() const noexcept(true){
+    return "rows number, columns number and mines number must be integers larger than 0";
+  }
+};
 
+class InvalidMineNum: public std::exception{
+public:
+  virtual const char * what() const noexcept(true){
+    return "mine numbers could not exceed or equal to the total grids";
+  }
+};  
 #endif
