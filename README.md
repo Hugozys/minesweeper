@@ -45,6 +45,13 @@ The player should be able to choose between these levels
 
 Your goal is to improve your main function in such a way that if the user enter "b" command while playing or he finished one round, he should be brought back to a status where the game would let him choose difficulties (easy medium hard customize) and start a new round. You should also implement checking if the player wins after every update to the board
 
+To keep the integrity of board displaying, you should add constraint on the max number of rows and columns the player is allowed
+to put in, You could take use of the alphabet displaying the columns and rows. So the maximum rows(columns) number SHOULD be
+0-9 + [A-Z] = 10 + 26 = 36
+Notice that this needs you to change some parsing function so that it can support the following command:
+c A D
+m F G
+
 
 
 
