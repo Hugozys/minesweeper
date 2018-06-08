@@ -36,7 +36,7 @@ Your goal is to write the main function which enable interaction with the player
 -click a grid (DONE)
 -mark a grid  (DONE)
 -designate board size and mine numbers (DONE)
--tell the player if he loses or wins (WINS HASN'T DONE)
+-tell the player if he loses or wins (DONE)
 
     
 #### STEP 2
@@ -47,11 +47,15 @@ Your goal is to improve your main function in such a way that if the user enter 
 
 To keep the integrity of board displaying, you should add constraint on the max number of rows and columns the player is allowed
 to put in, You could take use of the alphabet displaying the columns and rows. So the maximum rows(columns) number SHOULD be
-0-9 + [A-Z] = 10 + 26 = 36
+0-9 + [A-T] = 10 + 20 = 30
 Notice that this needs you to change some parsing function so that it can support the following command:
 c A D
 m F G
 
+
+Your goal is to implement print help function
+
+Your goal is to test the program further
 
 
 
