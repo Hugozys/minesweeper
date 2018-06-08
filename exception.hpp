@@ -10,6 +10,13 @@ public:
 
 };
 
+class InvalidIndex: public std::exception{
+public:
+  virtual const char * what() const noexcept(true){
+    return "row(column) must be [0-9]/[a-t]/[A-T]";
+  }
+};
+
 class GameOver: public std::exception{
   bool has_won;
 public:
@@ -60,7 +67,7 @@ class ReturnMenu: public std::exception{
 class InvalidParameter: public std::exception{
 public:
   virtual const char * what() const noexcept(true){
-    return "rows number, columns number and mines number must be integers larger than 0";
+    return "rows number, columns number and mines number must be integers larger than 0.\nrows number and columns number must be less than or equal to 36";
   }
 };
 

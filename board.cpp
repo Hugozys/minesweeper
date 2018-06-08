@@ -22,6 +22,45 @@ const char * HORI = "\u2550";
 const char * VERT = "\u2551";
 
 
+void Board::print_size_to_char(size_t index){
+  if (index >=0 && index <= 9){
+    std::cout<<index;
+  }
+  else{
+    char value = 'A' + index - 10;
+    std::cout<<value;
+  }
+}
+
+size_t Board::char_to_size(char alphabet){
+  if (alphabet >= '0' && alphabet <= '9'){
+    return alphabet - '0';
+  }
+  if (alphabet >= 'a' && alphabet <= 't'){
+    return alphabet - 'a' + 10;
+  }
+  if (alphabet >= 'A' && alphabet <= 'T'){
+    return alphabet - 'A' + 10;
+  }
+  throw InvalidIndex();
+}
+
+void Board::parse_coordinate(std::stringstream & raw_stream, size_t & row_index, size_t & col_index){
+  std::string row_str;
+  std::string col_str;
+  raw_stream >> row_str;
+  raw_stream >> col_str;
+  if (row_str.size() != 1 || col_str.size() != 1){
+    throw InvalidIndex();
+  }
+  //0=> 48  9 => 57
+  row_index =  char_to_size(row_str[0]);
+  col_index =  char_to_size(col_str[0]);
+  //a=> 97  A => 65
+}
+
+
+
 void Board::count_mine(size_t ro, size_t cl, int & answer){
   if (grids[ro][cl].get_is_mine()){
     ++answer;
@@ -29,7 +68,7 @@ void Board::count_mine(size_t ro, size_t cl, int & answer){
 }
 void Board::initialize_mine_nums(){
   for (size_t i = 0; i < rows_num; ++i){
-    for (size_t j = 0; j < rows_num; ++j){
+    for (size_t j = 0; j < cols_num; ++j){
       if (grids[i][j].get_is_mine()){
 	continue;
       }
@@ -92,7 +131,9 @@ Board::Board(size_t rows, size_t columns,size_t mine):grids(vector<vector<GridIn
 void Board::print_board(bool is_over){
   std::cout<<" ";
   for (size_t index = 0; index < cols_num; ++index){
-    std::cout<<" "<<" "<<index<<" ";
+    std::cout<<" "<<" ";
+    print_size_to_char(index);
+    std::cout<<" ";
   }
   std::cout<<std::endl;
   for (size_t i = 0; i < 2*rows_num+1; ++i){
@@ -130,7 +171,8 @@ void Board::print_board(bool is_over){
 	  std::cout<<VERT<<std::endl;
 	}
 	else if (j == 0 && i % 2 != 0){
-	  std::cout<<i/2<<VERT<<" ";
+	  print_size_to_char(i/2);
+	  std::cout<<VERT<<" ";
 	  grids[i/2][j].print_grid_content(is_over);
 	  std::cout<<" ";
 	}

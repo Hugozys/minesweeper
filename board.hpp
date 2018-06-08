@@ -3,12 +3,9 @@
 #include <vector>
 #include <cstdio>
 #include "gridinfo.hpp"
+#include "sstream"
 using std::vector;
 using std::size_t;
-
-
-
-
 
 class Board{
   //your implementation goes here
@@ -22,16 +19,15 @@ class Board{
   void count_mine(size_t ro, size_t cl, int & answer);
   void initialize_mine_nums();
   void initialize_grids();
+  static size_t char_to_size(char alphabet);
+  static void print_size_to_char(size_t index);
 public:
+  static void parse_coordinate(std::stringstream & raw_stream, size_t & row_index, size_t & col_index);
   Board(size_t rows, size_t columns,size_t mine);
   void print_board(bool is_over);
   void board_on_click(size_t row_index, size_t col_index);
   void board_on_mark(size_t row_index, size_t col_index);
   bool has_won();
 };
-
-
-
-
 
 #endif
