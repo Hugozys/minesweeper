@@ -1,4 +1,4 @@
-## A Command-Line Based Minesweep
+## A Command-Line Based Minesweeper
 
 ### Game Rule Introduction
 The goal of the game is to uncover all the squares that do not contain mines without being "blown up" by clicking on a square with a mine underneath. 
@@ -53,7 +53,7 @@ c A D
 m F G
 
 
-Your goal is to implement print help function
+Your goal is to implement print help function(Done)
 
 Your goal is to test the program further
 
