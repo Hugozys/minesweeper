@@ -5,7 +5,7 @@ DEBUG = -ggdb3
 SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 
-test_board: $(OBJS)
+minesweeper: $(OBJS)
 	$(CXX) -o $@ $^
 
 %.o: %.cpp
@@ -15,7 +15,7 @@ depend:
 	makedepend $(SRCS)
 
 clean:
-	rm -f *~ *# *.o test_board
+	rm -f *~ *# *.o minesweeper
 # DO NOT DELETE
 
 gridinfo.o: gridinfo.hpp

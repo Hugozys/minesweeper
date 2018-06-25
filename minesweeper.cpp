@@ -4,6 +4,7 @@
 #include <limits>
 #include <getopt.h>
 #include <sstream>
+#include <iomanip>
 const int MAX_ROWS_COLS = 30;
 const int EASY_ROWS_COLS = 8;
 const int EASY_MINES = 10;
@@ -53,8 +54,51 @@ void parse_command(Board & game_board){
     throw InvalidCommand();
   }
 }
+void AsterickGenerator(int num){
+  for(int i = 0; i< num; ++i){
+    std::cout<<"*";
+  }
+  std::cout<<std::endl;
+}
+
 void print_help_message(){
-  std::cout<<"help message!"<<std::endl;
+  AsterickGenerator(70);
+  std::cout<<"*Welcome to Hugo's terminal-based minesweeper! The goal of the game  *\n";
+  std::cout<<"*is to uncover all the squares that do not contain mines without     *\n";
+  std::cout<<"*being \"blown up\" by clicking on a square with a mine underneath.    *\n";
+  std::cout<<"*The location of the mines is discovered by a process of logic.      *\n";
+  std::cout<<"*Clicking on the game board will reveal what is hidden underneath    *\n";
+  std::cout<<"*the chosen square or squares (a large number of blank squares may be*\n";
+  std::cout<<"*revealed in one go if they are adjacent to each other).Some squares *\n";
+  std::cout<<"*are blank but some contain numbers (1 to 8), each number being the  *\n";
+  std::cout<<"*number of mines adjacent to the uncovered square. To help avoid     *\n";
+  std::cout<<"*hitting a mine, the location of a suspected mine can be marked by   *\n";
+  std::cout<<"*flagging it with the right mouse button. The game is won once all   *\n";
+  std::cout<<"*blank squares have been uncovered without hitting a mine, any       *\n";
+  std::cout<<"*remaining mines not identified by flags being automatically flagged *\n";
+  std::cout<<"*by the computer. However, in the event that a game is lost and the  *\n";
+  std::cout<<"*player mistakenly flags a safe square, that square will either      *\n";
+  std::cout<<"*appear with a red X covering the mine (denoting it as safe), or     *\n";
+  std::cout<<"*just a red X (also denoting it as safe). The game board comes in    *\n"; 
+  std::cout<<"*three set sizes: beginner, intermediate, and expert, though a custom*\n";
+  std::cout<<"*option is available as well.                                        *\n";
+  std::cout<<"*            --https://en.wikipedia.org/wiki/Minesweeper_(video_game)*\n";
+  AsterickGenerator(70);
+  std::cout<<"NOTE: The row will be indexed via 0-9, if you create a board with row "<<std::endl;
+  std::cout<<"      number larger than that, it will indexed via alphabet, starting "<<std::endl; 
+  std::cout<<"      from A while the maximum is T. Same works for the column"<<std::endl<<std::endl;
+  std::cout<<"Usage:\n\t./minesweeper <rows number> <columns number> <mine numbers>."<<std::endl;
+  std::cout<<"Option:"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"-h/--help"<<"show this help message"<<std::endl;
+  std::cout<<"Commands:"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"c <row> <column>"<<"explore this grid(case insensitive)"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"m <row> <column>"<<"mark this grid(case insensitive) if it's unexplored, unmark it if it's alread marked"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"q"<<"quit the game"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"b"<<"if you are playing an instance of the game, return to the main menu to select difficulty"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"easy"<<"play easy difficulty"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"intermediate"<<"play intermediate difficulty"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"expert"<<"play expert difficulty"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"customize"<<"customize your own board and mine numbers"<<std::endl;
 }
 
 
