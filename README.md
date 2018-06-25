@@ -34,8 +34,11 @@ Your goal by this weekend would be to write the recursive rendering method of bo
 
 Your goal is to write the main function which enable interaction with the player. It involves:
 -click a grid (DONE)
+
 -mark a grid  (DONE)
+
 -designate board size and mine numbers (DONE)
+
 -tell the player if he loses or wins (DONE)
 
     
