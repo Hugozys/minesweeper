@@ -21,6 +21,7 @@ class Board{
   void initialize_grids();
   static size_t char_to_size(char alphabet);
   static void print_size_to_char(size_t index);
+  bool isValidIndex(int row, int col);
 public:
   static void parse_coordinate(std::stringstream & raw_stream, size_t & row_index, size_t & col_index);
   Board(size_t rows, size_t columns,size_t mine);

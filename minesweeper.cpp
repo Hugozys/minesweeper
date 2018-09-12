@@ -92,7 +92,7 @@ void print_help_message(){
   std::cout<<"\t"<<std::left<<std::setw(30)<<"-h/--help"<<"show this help message"<<std::endl;
   std::cout<<"Commands:"<<std::endl;
   std::cout<<"\t"<<std::left<<std::setw(30)<<"c <row> <column>"<<"explore this grid(case insensitive)"<<std::endl;
-  std::cout<<"\t"<<std::left<<std::setw(30)<<"m <row> <column>"<<"mark this grid(case insensitive) if it's unexplored, unmark it if it's alread marked"<<std::endl;
+  std::cout<<"\t"<<std::left<<std::setw(30)<<"m <row> <column>"<<"mark this grid(case insensitive) if it's unexplored, unmark it if it's already marked"<<std::endl;
   std::cout<<"\t"<<std::left<<std::setw(30)<<"q"<<"quit the game"<<std::endl;
   std::cout<<"\t"<<std::left<<std::setw(30)<<"b"<<"if you are playing an instance of the game, return to the main menu to select difficulty"<<std::endl;
   std::cout<<"\t"<<std::left<<std::setw(30)<<"easy"<<"play easy difficulty"<<std::endl;

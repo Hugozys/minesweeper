@@ -191,9 +191,13 @@ void Board::print_board(bool is_over){
 }
 
 
-
+bool Board::isValidIndex(int row, int col){
+  int row_size = static_cast<int>(rows_num);
+  int col_size = static_cast<int>(cols_num);
+  return row >= 0 && row < row_size && col >=0 && col <  col_size;		 
+}
 void Board::recursive_update_board(size_t row_index, size_t col_index){
-  //if this grid is mine or has clicked, we stop and return
+  //if this grid is mine or has been clicked, we stop and return
   if (grids[row_index][col_index].get_is_mine() || grids[row_index][col_index].get_has_clicked()){
     return;
   }
@@ -203,25 +207,13 @@ void Board::recursive_update_board(size_t row_index, size_t col_index){
     --to_win_num;
   //else we change this grid's status to has_clicked,unset mark
     if (grids[row_index][col_index].get_mine_num_around() == 0){
-    //if row_index > 0
-      if (row_index > 0){
-	//investigate its up grid
-	recursive_update_board(row_index - 1, col_index);
-      }
-      //if row_index < rows_num - 1
-      if (row_index < rows_num - 1){
-	//investigate its down grid
-	recursive_update_board(row_index + 1, col_index);
-      }
-      //if col_index > 0
-      if (col_index > 0){
-	//investigate its left grid
-	recursive_update_board(row_index, col_index - 1);
-      }
-      //if col_index < cols_num - 1
-      if (col_index < cols_num - 1){
-	//investiage its right grid
-	recursive_update_board(row_index, col_index + 1);
+      int next_steps[8][2]= {{0,1},{0,-1},{1,0},{-1,0},{1,1},{-1,-1},{1,-1},{-1,1}}; //check 8 cells around
+      for (int i = 0; i < 8; ++i){
+	int next_row_ind = row_index + next_steps[i][0];
+	int next_col_ind = col_index + next_steps[i][1];
+	if (isValidIndex(next_row_ind, next_col_ind)){
+	  recursive_update_board(next_row_ind, next_col_ind);
+	}
       }
     }
   }
