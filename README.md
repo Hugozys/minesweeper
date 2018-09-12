@@ -33,9 +33,13 @@ Your goal by this weekend would be to write out this board class and some of the
 Your goal by this weekend would be to write the recursive rendering method of board class (when the game starts, the user is able to randomly explore a grid, and the there may be multiple grids revealed instead of just the one the user chooses (Jun 10th)
 
 Your goal is to write the main function which enable interaction with the player. It involves:
+
 -click a grid (DONE)
+
 -mark a grid  (DONE)
+
 -designate board size and mine numbers (DONE)
+
 -tell the player if he loses or wins (DONE)
 
     
